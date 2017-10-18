@@ -3,7 +3,7 @@ package code.fights;
 public class CheckPalindrome {
 
 	public static void main(String[] args) {
-		checkPalindrome("aabac");
+		checkPalindrome("");
 	}
 	
 	static boolean checkPalindrome(String inputString) {
