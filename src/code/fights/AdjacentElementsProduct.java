@@ -8,19 +8,14 @@ public class AdjacentElementsProduct {
 	}
 
 	static int adjacentElementsProduct(int[] inputArray) {
-		int tempProd;// to hold the test product until we find which one is largest
-		int product = 0;// to hold the largest product
+		int tempProd;
+		int product = Integer.MIN_VALUE;
 		for (int i = 1; i < inputArray.length; i++){
-			// need a way to stop k at array.length - 1
-			int j = inputArray[i];
-			int k = inputArray[j - 1];
-			if (j < inputArray.length - 2){
-				tempProd = j * k;
+		  tempProd = inputArray[i] * inputArray[i - 1];
 				if(tempProd > product){
-					tempProd = product;
+					product = tempProd;
 				}
 			}
-		}
 		System.out.print(product);
 		return product;
 	}
