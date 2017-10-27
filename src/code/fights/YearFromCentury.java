@@ -3,11 +3,21 @@ package code.fights;
 public class YearFromCentury {
 
 	public static void main(String[] args) {
-		centuryFromYear(1700);
+		centuryFromYear(1701);
 	}
 
 	static int centuryFromYear(int year) {
 		int century = 0;
+		if(year % 100 == 0){
+			century = year / 100;
+		} else {
+			century = (year / 100) + 1;
+		}
+		
+		System.out.print(century);
+		return century;
+	}
+}
 		
 		
 //		if (year <= 100) {
@@ -53,8 +63,4 @@ public class YearFromCentury {
 //		} else if (year > 2000 && year <= 2100) {
 //			century = 21;
 //		}
-		System.out.print(century);
-		return century;
 
-	}
-}
