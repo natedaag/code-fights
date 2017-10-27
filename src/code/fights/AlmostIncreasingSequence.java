@@ -1,30 +1,33 @@
 package code.fights;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class AlmostIncreasingSequence {
 
   public static void main(String[] args) {
-    int[] sequence = {1, 3, 2, 1};
-    almostIncreasingSequence(sequence);
+    int[] array = {3, 2, 1};
+    almostIncreasingSequence(array);
   }
+  
   static boolean almostIncreasingSequence(int[] sequence) {
-    
-    List list = new ArrayList<>(Arrays.asList(sequence));
-    boolean sequential = false;
-    for(int i = 0; i < sequence.length - 2; i++){
-      if(sequence[i] > sequence[i + 1]){
-      list.remove(sequence[i]);
-      sequential = true;
-      } else {
-      sequential = false;
-      }
-    }
-    System.out.print(sequential);
-    return sequential;
-  }
+	    boolean sequential = true;
+	    for(int i = 0; i < sequence.length - 1; i++) {
+	        if(sequence[i] >= sequence[i + 1]) {
+	            if(sequential) {
+	                if(i != 0 && i != sequence.length-2) {
+	                    if(sequence[i + 1] <= sequence[i - 1]) {
+	                        if(sequence[i + 2] <= sequence[i]) {
+	                            return false;
+	                        }
+	                        i++;
+	                    }
+	                }
+	                sequential = false;
+	            } else {
+	                return false;
+	            }
+	        }
+	    }
+	    return true;
+	    }
 
 
 }
